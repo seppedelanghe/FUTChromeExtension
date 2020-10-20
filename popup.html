@@ -1,16 +1,83 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="/js/popup.js"></script>
+    <link href="/css/popover.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>
-        I'm the popup
-    </h1>
-    <h2>
-        I'm the options
-    </h2>
+    <main class="main-body">
+        <header>
+            <div class="title">
+                FIFA Ultimate Team Tools
+            </div>
+        </header>
+
+        <section class="stats">
+            <div class="stats-list">
+                <div class="title">
+                    Transfer list:
+                </div>
+                <div class="statuses">
+                    <div class="status">
+                        <b>Total: </b><span id="tradepile-total">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Sold: </b><span id="tradepile-sold">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Unsold: </b><span id="tradepile-unsold">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Active: </b><span id="tradepile-active">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Unactive: </b><span id="tradepile-inactive">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-list">
+                <div class="title">
+                    Transfer targets:
+                </div>
+                <div class="statuses">
+                    <div class="status">
+                        <b>Total: </b><span id="transfers-total">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Active: </b><span id="transfers-active">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Watched: </b><span id="transfers-watching">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Won: </b><span id="transfers-won">0</span>
+                    </div>
+                    <div class="status">
+                        <b>Expired: </b><span id="transfers-expired">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="toolset">
+            <div class="title">
+                Transfer tools:
+            </div>
+
+            <div class="tools">
+                <div class="tool">
+                    <b class="description">
+                        Lowest price for the current filters: 
+                    </b>
+                    <span class="result" id="result-lowest-price">
+                        unknown
+                    </span>
+                    <button type="button" id="btn-lowest-price">
+                        Find
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

@@ -1,0 +1,95 @@
+html, body {
+  background: #14215a;
+  margin: 0;
+  padding: 0;
+}
+html *, body * {
+  color: white;
+}
+html .title, body .title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+main {
+  width: 600px;
+  height: 400px;
+  padding: 10px;
+}
+main header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin: 10px;
+}
+main .stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .stats:not(:last-child) {
+  border-bottom: 2px solid #14215a;
+}
+main .stats .stats-list {
+  width: 50%;
+  padding: 10px;
+}
+main .stats .stats-list:nth-child(even) {
+  border-left: 2px solid #14215a;
+}
+main .stats .stats-list .title {
+  color: #56cef6;
+}
+main .stats .stats-list .statuses {
+  font-size: 0.75rem;
+}
+main .stats .stats-list .statuses .status {
+  color: white;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  row-gap: 5px;
+}
+main .stats .stats-list .statuses .status b {
+  text-align: left;
+}
+main .stats .stats-list .statuses .status span {
+  text-align: right;
+}
+main .toolset {
+  padding: 10px;
+}
+main .toolset .title {
+  color: #56cef6;
+}
+main .toolset .tools .tool {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  grid-auto-rows: 40px;
+  row-gap: 5px;
+  align-items: center;
+}
+main .toolset .tools .tool .description {
+  font-size: 0.75rem;
+}
+main .toolset .tools .tool span {
+  text-align: center;
+  padding: 0 8px;
+}
+main .toolset .tools .tool button {
+  outline: none;
+  border: none;
+  background-color: #7d3cee;
+  color: #07ffc3;
+  padding: 4px 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=popover.css.map */

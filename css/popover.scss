@@ -1,0 +1,136 @@
+$cyan: rgb(7, 255, 195);
+$purple-dark: rgb(125, 60, 238);
+$purple-light: rgb(186, 29, 247);
+$white: rgb(255,255,255);
+$black: rgb(29, 29, 29);
+$pink: rgb(228, 18, 147);
+$blue: rgb(86, 206, 246);
+$blue-dark: rgb(20, 33, 90);
+$orange: rgb(255, 147,41);
+
+$gradient-bg: linear-gradient(135deg, $purple-dark 0%, $purple-light 100%);
+
+$border: 2px solid $blue-dark;
+
+html, body {
+    background: $blue-dark;
+
+    margin: 0;
+    padding: 0;
+
+    * {
+        color: $white;
+    }
+
+    .title {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}
+
+main {
+    width: 600px;
+    height: 400px;
+
+    padding: 10px;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $white;
+
+            margin: 10px;
+        }
+    }
+    
+    .stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            border-bottom: $border;
+        }
+
+        .stats-list {
+            width: 50%;
+            padding: 10px;
+
+            &:nth-child(even) {
+                border-left: $border;
+            }
+    
+            .title {
+                color: $blue;
+            }
+    
+            .statuses {
+                font-size: 0.75rem;
+    
+                .status {
+                    color: $white;
+                    display: grid;
+                    grid-template-columns: 80% 20%;
+                    row-gap: 5px;
+    
+                    b {
+                        text-align: left;
+                    }
+    
+                    span {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    .toolset {
+        padding: 10px;
+
+        .title {
+            color: $blue;
+        }
+
+        .tools {
+            
+
+            .tool {
+                display: grid;
+                grid-template-columns: 60% 20% 20%;
+                grid-auto-rows: 40px;
+                row-gap: 5px;
+                align-items: center;
+
+                .description {
+                    font-size: 0.75rem;
+                }
+
+                span {
+                    text-align: center;
+                    padding: 0 8px;
+                }
+
+                button {
+                    outline: none;
+                    border: none;
+                    background-color: $purple-dark;
+                    color: $cyan;
+                    padding: 4px 8px;
+
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+
