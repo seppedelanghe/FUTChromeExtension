@@ -17,8 +17,6 @@ var injection = '(' + function () {
         eval(code)();
         window.returnResponse('CustomCodeResponse', {'status': 'Execute success!', 'code': code});
     });
-
-    console.log('hello');
 } + ')();';
 
 function checksum(s) {
@@ -31,10 +29,25 @@ function checksum(s) {
       hash = ((hash << 5) - hash) + c;
       hash = hash & hash; // Convert to 32bit integer
     }
-    return hash;
+    return hash.toString();
 };
 
-if (typeof window.latestInjetion === 'undefined' || (window.latestInjetion !== checksum(injection))) {
+function checkMetaTag(onlyContent = true) {
+    const metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute('name') === 'latestInjection') {
+            if (onlyContent) {
+                return metas[i].getAttribute('content').toString();
+            } else {
+                return metas[i];
+            }
+        }
+    }
+
+    return null;
+}
+
+if (checkMetaTag() === null || checkMetaTag() !== checksum(injection)) {
     // inject code into "forbidden side"
     var scr = document.createElement('script');
     // appending text to a function to convert it's src to string only works in Chrome, might also work like functions below, needs testing
@@ -45,10 +58,17 @@ if (typeof window.latestInjetion === 'undefined' || (window.latestInjetion !== c
     // and hide remove the code to hide
     scr.parentNode.removeChild(scr);
 
-    // Save checksum to prevent dubble injections
-    window.latestInjetion = checksum(injection);
-
-    console.log('Updated injection. ' + window.latestInjetion);
+    var meta = checkMetaTag(false);
+    if (meta === null) {
+        meta = document.createElement('meta');
+        meta.name = "latestInjection";
+        meta.content = checksum(injection);
+        document.getElementsByTagName('head')[0].appendChild(meta);
+    } else {
+        meta.content = checksum(injection);
+    }
+    
+    console.log('Updated injection.');
 } else {
-    console.log('Injection has not changed. ' + window.latestInjetion);
+    console.log('Injection has not changed.');
 }

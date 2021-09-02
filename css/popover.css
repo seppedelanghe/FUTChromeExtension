@@ -11,10 +11,13 @@ html .title, body .title {
   font-weight: bold;
   font-size: 1rem;
 }
+html input, body input {
+  color: #1d1d1d;
+}
 
 main {
-  width: 600px;
-  height: 400px;
+  width: auto;
+  height: auto;
   padding: 10px;
 }
 main header {
@@ -69,10 +72,28 @@ main .toolset .title {
 }
 main .toolset .tools .tool {
   display: grid;
-  grid-template-columns: 60% 20% 20%;
   grid-auto-rows: 40px;
   row-gap: 5px;
   align-items: center;
+  grid-template-rows: 100%;
+}
+main .toolset .tools .tool-single {
+  grid-template-columns: 100%;
+}
+main .toolset .tools .tool-halves {
+  grid-template-columns: 50% 50%;
+}
+main .toolset .tools .tool-start {
+  grid-template-columns: 60% 20% 20%;
+}
+main .toolset .tools .tool-middle {
+  grid-template-columns: 20% 60% 20%;
+}
+main .toolset .tools .tool-end {
+  grid-template-columns: 20% 20% 60%;
+}
+main .toolset .tools .tool-hidden {
+  display: none;
 }
 main .toolset .tools .tool .description {
   font-size: 0.75rem;
@@ -81,7 +102,40 @@ main .toolset .tools .tool span {
   text-align: center;
   padding: 0 8px;
 }
-main .toolset .tools .tool button {
+
+.player-table {
+  background-color: #7d3cee;
+  margin-top: 1rem;
+  min-width: 600px;
+}
+.player-table table {
+  border: 1px solid #56cef6;
+}
+.player-table th, .player-table td {
+  text-align: center;
+}
+.player-table th:not(:last-child), .player-table td:not(:last-child) {
+  border-right: 1px solid #56cef6;
+}
+.player-table th {
+  color: #56cef6;
+  border-bottom: 1px solid #56cef6;
+}
+.player-table td {
+  color: white;
+  cursor: pointer;
+}
+
+.input-wrapper {
+  width: 100%;
+}
+.input-wrapper input {
+  width: calc(100% - 8px);
+  padding: 2px 0;
+  margin: 4px 0;
+}
+
+button {
   outline: none;
   border: none;
   background-color: #7d3cee;
@@ -90,6 +144,11 @@ main .toolset .tools .tool button {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /*# sourceMappingURL=popover.css.map */

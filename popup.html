@@ -1,14 +1,19 @@
 <html lang="en">
+
 <head>
     <script src="/js/popup.js"></script>
     <link href="/css/popover.css" rel="stylesheet" />
 </head>
+
 <body>
     <main class="main-body">
         <header>
             <div class="title">
                 FIFA Ultimate Team Tools
             </div>
+            <button type="button" id="btn-inject">
+                Inject
+            </button>
         </header>
 
         <section class="stats">
@@ -61,23 +66,59 @@
 
         <section class="toolset">
             <div class="title">
-                Transfer tools:
+                Sniping tool:
             </div>
 
             <div class="tools">
-                <div class="tool">
+                <div class="tool tool-middle">
                     <b class="description">
-                        Lowest price for the current filters: 
+                        Search for player:
                     </b>
-                    <span class="result" id="result-lowest-price">
-                        unknown
-                    </span>
-                    <button type="button" id="btn-lowest-price">
-                        Find
+                    <div class="input-wrapper">
+                        <input type="text" name="player-search" id="player-search">
+                    </div>
+                    <button type="button" id="btn-search-players">
+                        Search
                     </button>
                 </div>
+
+                <div class="tool tool-single tool-hidden" id="player-buy-list-tool">
+                    <table class="player-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>BID</th>
+                                <th>BIN</th>
+                                <th>Options</th>
+                              </tr>
+                        </thead>
+                        <tbody id="player-buy-list">
+                        </tbody>
+                        
+                      </table>
+                </div>
+
+                <div class="tool tool-single">
+                    <table class="player-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Club</th>
+                                <th>Country</th>
+                                <th>Rating</th>
+                              </tr>
+                        </thead>
+                        <tbody id="player-search-list">
+                        </tbody>
+                        
+                      </table>
+                </div>
+
             </div>
         </section>
     </main>
 </body>
+
 </html>

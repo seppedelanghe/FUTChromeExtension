@@ -27,11 +27,15 @@ html, body {
         font-weight: bold;
         font-size: 1rem;
     }
+
+    input {
+        color: $black;
+    }
 }
 
 main {
-    width: 600px;
-    height: 400px;
+    width: auto;
+    height: auto;
 
     padding: 10px;
 
@@ -103,10 +107,34 @@ main {
 
             .tool {
                 display: grid;
-                grid-template-columns: 60% 20% 20%;
                 grid-auto-rows: 40px;
                 row-gap: 5px;
                 align-items: center;
+                grid-template-rows: 100%;
+
+                &-single {
+                    grid-template-columns: 100%;
+                }
+
+                &-halves {
+                    grid-template-columns: 50% 50%;
+                }
+
+                &-start {
+                    grid-template-columns: 60% 20% 20%;
+                }
+
+                &-middle {
+                    grid-template-columns: 20% 60% 20%;
+                }
+
+                &-end {
+                    grid-template-columns: 20% 20% 60%;
+                }
+
+                &-hidden {
+                    display: none;
+                }
 
                 .description {
                     font-size: 0.75rem;
@@ -116,21 +144,62 @@ main {
                     text-align: center;
                     padding: 0 8px;
                 }
-
-                button {
-                    outline: none;
-                    border: none;
-                    background-color: $purple-dark;
-                    color: $cyan;
-                    padding: 4px 8px;
-
-                    cursor: pointer;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                }
             }
         }
     }
 }
 
+.player-table {
+    background-color: $purple-dark;
+    margin-top: 1rem;
+    min-width: 600px;
 
+    table {
+        border: 1px solid $blue;
+    }
+
+    th, td {
+        text-align: center;
+
+        &:not(:last-child) {
+            border-right: 1px solid $blue;
+        }
+    }
+
+    th {
+        color: $blue;
+        border-bottom: 1px solid $blue;
+    }
+
+    td {
+        color: $white;
+        cursor: pointer;
+    }
+}
+
+.input-wrapper {
+    width: 100%;
+
+    input {
+        width: calc(100% - 8px);
+        padding: 2px 0;
+        margin: 4px 0;
+    }
+}
+
+button {
+    outline: none;
+    border: none;
+    background-color: $purple-dark;
+    color: $cyan;
+    padding: 4px 8px;
+
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
